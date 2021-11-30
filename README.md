@@ -29,10 +29,15 @@
                     "overwrite": false,
                     "path": "vendor/davyin/drupal_settings/assets/prod.services.yml"
                 },
+                "[web-root]/sites/default/settings.platform.php": {
+                    "mode": "replace",
+                    "overwrite": false,
+                    "path": "vendor/davyin/drupal_settings/assets/settings.platform.php"
+                }
                 "[web-root]/sites/default/settings.php": {
                     "mode": "replace",
                     "overwrite": false,
-                    "path": "vendor/davyin/drupal_settings/assets/settings.php"
+                    "path": "vendor/davyin/drupal_settings/assets/default.settings.php"
                 }
             },
             "locations": {
