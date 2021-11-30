@@ -34,8 +34,6 @@ $settings['config_sync_directory'] = '../config/sync';
 $settings['config_exclude_modules'] = [
   'devel',
   'devel_php',
-  'config_exclude',
-  'config_filter',
   'stage_file_proxy',
 ];
 // Automatic Platform.sh settings.
