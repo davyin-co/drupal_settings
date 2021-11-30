@@ -2,7 +2,7 @@
 $config['devel.settings']['devel_dumper'] =  'var_dumper';
 $settings['config_sync_directory'] = '../config/sync';
 ### Database connection
-if(getenv('MYSQL_HOST')){
+if(getenv('DB_HOST')){
   $databases['default']['default'] = array(
     'driver' => getenv('DB_TYPE') ?? 'mysql',
     'database' => getenv('DB_NAME'),
@@ -33,7 +33,7 @@ if (getenv('HTTP_X_FORWARDED_FOR')) {
 ### Trusted Host Patterns, see https://www.drupal.org/node/2410395 for more information.
 ### If your site runs on multiple domains, you need to add these domains here
 $settings['trusted_host_patterns'] = array(
-  '^' . str_replace('.', '\.', getenv('VIRTUAL_HOST')) . '$',
+  '^' . str_replace('.', '\.', getenv('HTTP_HOST')) . '$',
 );
 
 ### Temp directory
