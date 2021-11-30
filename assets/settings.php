@@ -4,12 +4,12 @@ $settings['config_sync_directory'] = '../config/sync';
 ### Database connection
 if(getenv('MYSQL_HOST')){
   $databases['default']['default'] = array(
-    'driver' => 'mysql',
-    'database' => getenv('MYSQL_DB_NAME'),
-    'username' => getenv('MYSQL_USERNAME'),
-    'password' => getenv('MYSQL_PASSWORD'),
-    'host' => getenv('MYSQL_HOST'),
-    'port' => getenv('MYSQL_PORT'),
+    'driver' => getenv('DB_TYPE') ?? 'mysql',
+    'database' => getenv('DB_NAME'),
+    'username' => getenv('DB_USERNAME'),
+    'password' => getenv('DB_PASSWORD'),
+    'host' => getenv('DB_HOST'),
+    'port' => getenv('DB_PORT'),
     'prefix' => '',
   );
 }
