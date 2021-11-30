@@ -1,0 +1,11 @@
+{
+    "name": "davyin/drupal_settings",
+    "description": "drupal settings template, for Drupal 8/9",
+    "type": "package",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "drupal/core-composer-scaffold": "*"
+    }
+}
