@@ -72,4 +72,5 @@ services:
 ## similar project
 * [drupal settings](https://github.com/pog-vupar/drupal-settings)
 * [amazeeio drupal settings files](https://github.com/amazeeio/drupal-setting-files)
-* [platformsh-templates](https://github.com/platformsh-templates/drupal8/tree/master/web/sites/default)
+* [platformsh drupal8 templates](https://github.com/platformsh-templates/drupal8/tree/master/web/sites/default)
+* [platform fwp-drupal](https://github.com/platformsh/fwp-drupal/tree/master/web/sites/default)
