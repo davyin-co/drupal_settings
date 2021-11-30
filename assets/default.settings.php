@@ -31,7 +31,13 @@ $settings['file_scan_ignore_directories'] = [
 //
 // This is defined inside the read-only "config" directory, deployed via Git.
 $settings['config_sync_directory'] = '../config/sync';
-
+$settings['config_exclude_modules'] = [
+  'devel',
+  'devel_php',
+  'config_exclude',
+  'config_filter',
+  'stage_file_proxy',
+];
 // Automatic Platform.sh settings.
 if (file_exists($app_root . '/' . $site_path . '/settings.platformsh.php')) {
   include $app_root . '/' . $site_path . '/settings.platformsh.php';
