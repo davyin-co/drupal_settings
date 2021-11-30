@@ -39,8 +39,8 @@ $settings['config_exclude_modules'] = [
   'stage_file_proxy',
 ];
 // Automatic Platform.sh settings.
-if (file_exists($app_root . '/' . $site_path . '/settings.platformsh.php')) {
-  include $app_root . '/' . $site_path . '/settings.platformsh.php';
+if (file_exists($app_root . '/' . $site_path . '/settings.platform.php')) {
+  include $app_root . '/' . $site_path . '/settings.platform.php';
 }
 
 // Local settings. These come last so that they can override anything.
