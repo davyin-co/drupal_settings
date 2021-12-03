@@ -32,7 +32,7 @@ if (getenv('HTTP_X_FORWARDED_FOR')) {
 
 ### Trusted Host Patterns, see https://www.drupal.org/node/2410395 for more information.
 ### If your site runs on multiple domains, you need to add these domains here
-list($host, $port) = explode(getenv('HTTP_HOST'), ':');
+list($host, $port) = explode(':', getenv('HTTP_HOST'));
 $settings['trusted_host_patterns'] = array(
   '^' . str_replace('.', '\.', $host) . '$',
 );
