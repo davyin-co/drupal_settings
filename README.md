@@ -33,7 +33,7 @@
                     "mode": "replace",
                     "overwrite": false,
                     "path": "vendor/davyin/drupal_settings/assets/settings.platform.php"
-                }
+                },
                 "[web-root]/sites/default/settings.php": {
                     "mode": "replace",
                     "overwrite": false,
