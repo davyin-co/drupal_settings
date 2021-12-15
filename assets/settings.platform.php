@@ -24,8 +24,9 @@ if (getenv('ES_URL')) {
 ### Reverse proxy settings
 if (getenv('HTTP_X_FORWARDED_FOR')) {
   $settings['reverse_proxy'] = TRUE;
+  $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL;
   $settings['reverse_proxy_addresses'] = [
-    getenv('REMOTE_ADDR'),
+    getenv('HTTP_X_FORWARDED_FOR'),
     '127.0.0.1',
   ];
 }
