@@ -36,6 +36,8 @@ if (getenv('HTTP_X_FORWARDED_FOR')) {
 list($host, $port) = explode(':', getenv('HTTP_HOST'));
 $settings['trusted_host_patterns'] = array(
   '^' . str_replace('.', '\.', $host) . '$',
+  '127.0.0.1',
+  'localhost',
 );
 
 ### Temp directory
