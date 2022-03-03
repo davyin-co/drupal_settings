@@ -49,3 +49,12 @@ if (file_exists($app_root . '/' . $site_path . '/settings.platform.php')) {
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
+
+// Support Drupal subdir with env:DRUPAL_SUBDIR, see
+// https://blog.rebootr.nl/drupal-8-in-a-subdirectory-with-nginx/
+if(getenv('DRUPAL_SUBDIR') && substr(getenv('REQUEST_URI'), 1, strlen(getenv('DRUPAL_SUBDIR'))) === getenv('DRUPAL_SUBDIR') && isset($GLOBALS['request'])) {
+  $subdir = getenv('DRUPAL_SUBDIR');
+  $scriptName = $GLOBALS['request']->server->get('SCRIPT_NAME');
+  $scriptName = preg_match("#^/$subdir/#", $scriptName) ? : "/$subdir$scriptName";
+  $GLOBALS['request']->server->set('SCRIPT_NAME', $scriptName);
+}
