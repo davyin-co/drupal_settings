@@ -72,6 +72,9 @@ services:
       - DB_NAME=example_db
       - SITE_ENVIRONMENT=dev
       - HASH_SALT=change_me
+      - ES_URL=http://es01:9200
+      - ES_USERNAME=elastic
+      - ES_PASSWORD=password
 ```
 
 ## similar project
