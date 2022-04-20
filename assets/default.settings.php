@@ -63,6 +63,7 @@ if (getenv('BASE_URL')) {
   $base_url = getenv('BASE_URL');
 }
 
+$conf['file_public_path'] = 'sites/default/files';
 ### Temp directory
 if (getenv('TMP_PATH')) {
   $conf['file_temporary_path'] = getenv('TMP_PATH') ?? '/tmp';
