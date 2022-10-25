@@ -25,7 +25,7 @@ if (getenv('ES_URL')) {
 ## https://www.drupal.org/node/425990
 if (getenv('HTTP_X_FORWARDED_FOR')) {
   $settings['reverse_proxy'] = TRUE;
-  $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_ALL;
+  $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO |  \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED;
   $settings['reverse_proxy_addresses'] = [
     //getenv('HTTP_X_FORWARDED_FOR'),
     $_SERVER['REMOTE_ADDR'],
