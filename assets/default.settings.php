@@ -49,6 +49,10 @@ if (file_exists($app_root . '/' . $site_path . '/settings.platform.php')) {
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
+//avoid dynamic config path for different drupal project.
+if (file_exists('/var/config/drupal/settings.local.php')) {
+  include '/var/config/drupal/settings.local.php';
+}
 
 // Support Drupal subdir with env:DRUPAL_SUBDIR, see
 // https://blog.rebootr.nl/drupal-8-in-a-subdirectory-with-nginx/
