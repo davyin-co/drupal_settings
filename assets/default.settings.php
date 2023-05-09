@@ -56,7 +56,11 @@ if (file_exists('/var/config/drupal/settings.local.php')) {
 
 // Support Drupal subdir with env:DRUPAL_SUBDIR, see
 // https://blog.rebootr.nl/drupal-8-in-a-subdirectory-with-nginx/
-if(getenv('DRUPAL_SUBDIR') && substr(getenv('REQUEST_URI'), 1, strlen(getenv('DRUPAL_SUBDIR'))) === getenv('DRUPAL_SUBDIR') && isset($GLOBALS['request'])) {
+if (!(getenv('HTTP_HOST') == getenv('SUBDIR_HOST') && str_starts_with(getenv('REQUEST_URI'), DIRECTORY_SEPARATOR . getenv('DRUPAL_SUBDIR')))) {
+  //echo "not allow url" . getenv('HTTP_HOST') . getenv('REQUEST_URI');
+  return;
+}
+if (getenv('DRUPAL_SUBDIR') && substr(getenv('REQUEST_URI'), 1, strlen(getenv('DRUPAL_SUBDIR'))) === getenv('DRUPAL_SUBDIR') && isset($GLOBALS['request'])) {
   $subdir = getenv('DRUPAL_SUBDIR');
   $scriptName = $GLOBALS['request']->server->get('SCRIPT_NAME');
   $scriptName = preg_match("#^/$subdir/#", $scriptName) ? : "/$subdir$scriptName";
