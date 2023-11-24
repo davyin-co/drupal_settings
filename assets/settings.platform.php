@@ -4,12 +4,13 @@ $settings['config_sync_directory'] = '../config/sync';
 ### Database connection
 if(getenv('DB_HOST')){
   $databases['default']['default'] = array(
-    'driver' => getenv('DB_TYPE') ?? 'mysql',
+    'driver' => getenv('DB_TYPE') ? getenv('DB_TYPE') : 'mysql',
     'database' => getenv('DB_NAME'),
     'username' => getenv('DB_USERNAME'),
     'password' => getenv('DB_PASSWORD'),
     'host' => getenv('DB_HOST'),
     'port' => getenv('DB_PORT'),
+    //'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
     'prefix' => '',
   );
 }
