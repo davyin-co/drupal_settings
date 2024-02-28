@@ -1,6 +1,4 @@
 <?php
-$config['devel.settings']['devel_dumper'] =  'var_dumper';
-$settings['config_sync_directory'] = '../config/sync';
 ### Database connection
 if(getenv('DB_HOST')){
   $databases['default']['default'] = array(
@@ -60,11 +58,6 @@ if (getenv('HASH_SALT')) {
   $settings['hash_salt'] = getenv('HASH_SALT');
 }
 
-// Services for all environments
-if (file_exists(__DIR__ . '/services.yml')) {
-  $settings['container_yamls'][] = __DIR__ . '/services.yml';
-}
-
 // Environment specific settings files.
 if(getenv('SITE_ENVIRONMENT')){
   if (getenv('SITE_ENVIRONMENT') == 'prod') {
@@ -91,11 +84,3 @@ if(getenv('SITE_ENVIRONMENT')){
   }
 }
 
-// Last: this servers specific settings files.
-if (file_exists(__DIR__ . '/settings.local.php')) {
-  include __DIR__ . '/settings.local.php';
-}
-// Last: This server specific services file.
-if (file_exists(__DIR__ . '/services.local.yml')) {
-  $settings['container_yamls'][] = __DIR__ . '/services.local.yml';
-}
