@@ -13,7 +13,7 @@
 $config['devel.settings']['devel_dumper'] =  'var_dumper';
 
 $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
-$config['system.performance']['fast_404']['paths'] = '/\/Template|\/Uploadfiles|\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp|aspx)$/i';
+$config['system.performance']['fast_404']['paths'] = '/\/Uploadfiles|\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp|aspx)$/i';
 $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this   server.</p></body></html>';
 $databases = [];
 $config_directories = [];
