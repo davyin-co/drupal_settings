@@ -1,8 +1,7 @@
 <?php
-## $settings['config_sync_directory'] = '../config/sync';
 /**
 $databases['default']['default'] = array (
-  'database' => 'diatom_image_identification',
+  'database' => 'example_db',
   'username' => '',
   'password' => '',
   'prefix' => '',
