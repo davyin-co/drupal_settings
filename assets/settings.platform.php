@@ -10,6 +10,7 @@ if(getenv('DB_HOST')){
     'port' => getenv('DB_PORT'),
     //'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
     'prefix' => '',
+    'collation' => 'utf8mb4_general_ci',
   );
 }
 
