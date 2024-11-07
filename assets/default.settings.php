@@ -33,6 +33,13 @@ $settings['config_exclude_modules'] = [
   'devel_php',
   'stage_file_proxy',
 ];
+
+// Error page settings.
+// Log the UUID in the Drupal logs.
+$settings['error_page']['uuid'] = TRUE;
+// Your templates are located in path/to/templates, one level above the webroot.
+$settings['error_page']['template_dir'] = DRUPAL_ROOT . '/themes/custom/dyniva_ui/templates/error/';
+
 // Automatic Platform.sh settings.
 if (file_exists($app_root . '/' . $site_path . '/settings.platform.php')) {
   include $app_root . '/' . $site_path . '/settings.platform.php';
