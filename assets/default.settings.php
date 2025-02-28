@@ -106,6 +106,7 @@ if ($drupal_subdirs_string = getenv('DRUPAL_SUBDIRS')) {
         $scriptName = $GLOBALS['request']->server->get('SCRIPT_NAME');
         $scriptName = preg_match("#^/$subdir/#", $scriptName) ?: "/$subdir$scriptName";
         $GLOBALS['request']->server->set('SCRIPT_NAME', $scriptName);
+        break;
       }
     }
   }
