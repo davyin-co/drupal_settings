@@ -89,3 +89,24 @@ if ((getenv('HTTP_HOST') == getenv('SUBDIR_HOST') && str_starts_with(getenv('REQ
     $GLOBALS['request']->server->set('SCRIPT_NAME', $scriptName);
   }
 }
+
+if ($drupal_subdirs_string = getenv('DRUPAL_SUBDIRS')) {
+  $drupal_subdirs = explode(',', $drupal_subdirs_string);
+  foreach ($drupal_subdirs as $drupal_subdir_string) {
+    $drupal_subdir = explode('/', $drupal_subdir_string);
+    $subdir_host = $drupal_subdir[0];
+    $subdir = $drupal_subdir[1];
+
+    // Support Drupal subdir with env:DRUPAL_SUBDIR, see
+    // https://blog.rebootr.nl/drupal-8-in-a-subdirectory-with-nginx/
+    if ((getenv('HTTP_HOST') == $subdir_host && str_starts_with(getenv('REQUEST_URI'), DIRECTORY_SEPARATOR . $subdir))) {
+      //echo "allow url:" . getenv('HTTP_HOST') . getenv('REQUEST_URI');
+      //header('Location: http://' . getenv('HTTP_HOST') . getenv('REQUEST_URI'));
+      if ($subdir && substr(getenv('REQUEST_URI'), 1, strlen($subdir)) === $subdir && isset($GLOBALS['request'])) {
+        $scriptName = $GLOBALS['request']->server->get('SCRIPT_NAME');
+        $scriptName = preg_match("#^/$subdir/#", $scriptName) ?: "/$subdir$scriptName";
+        $GLOBALS['request']->server->set('SCRIPT_NAME', $scriptName);
+      }
+    }
+  }
+}
