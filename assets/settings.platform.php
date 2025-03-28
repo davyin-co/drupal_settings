@@ -67,6 +67,7 @@ if(getenv('SITE_ENVIRONMENT')){
     $config['system.performance']['css']['preprocess'] = 1;
     $config['system.performance']['js']['preprocess'] = 1;
     $config['stage_file_proxy.settings']['origin'] = false;
+    $config['dblog.settings']['row_limit'] = 100000;
     ini_set('display_errors', 0);
     ini_set('display_startup_errors', 0);
   }
