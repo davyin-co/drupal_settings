@@ -3,3 +3,10 @@ parameters:
     debug: false
     auto_reload: null
     cache: true
+  renderer.config:
+    required_cache_contexts: ['languages:language_interface', 'theme', 'user.permissions', 'url.path']
+    auto_placeholder_conditions:
+      max-age: 0
+      contexts: ['session', 'user']
+      tags: []
+    debug: false
