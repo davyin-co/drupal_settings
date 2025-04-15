@@ -1,9 +1,12 @@
 parameters:
-  twig.config:
-    debug: true # displays twig debug messages, developers like them :)
-    auto_reload: true # reloads the twig files on every request, so no drush cache clear is required
-    cache: false # No twig internal cache, important: check the example.settings.loca.php to fully fully disable the twig cache
-
-services:
-  cache.backend.null: # Defines a Cache Backend Factory which is just empty, it is not used by default
-    class: Drupal\Core\Cache\NullBackendFactory
+  twig.config: # disabling twig debugging and auto reload, plus enabling twig caching
+    debug: false
+    auto_reload: null
+    cache: true
+  renderer.config:
+    required_cache_contexts: ['languages:language_interface', 'theme', 'user.permissions', 'url.path']
+    auto_placeholder_conditions:
+      max-age: 0
+      contexts: ['session', 'user']
+      tags: []
+    debug: false
