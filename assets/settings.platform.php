@@ -80,9 +80,5 @@ if(getenv('SITE_ENVIRONMENT')){
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
   }
-  // Environment specific services files.
-  if (file_exists(__DIR__ . '/' . getenv('SITE_ENVIRONMENT') . '.services.yml')) {
-    $settings['container_yamls'][] = __DIR__ . '/' . getenv('SITE_ENVIRONMENT') . '.services.yml';
-  }
 }
 

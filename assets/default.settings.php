@@ -18,11 +18,24 @@ $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head>
 $databases = [];
 $config_directories = [];
 $settings['update_free_access'] = FALSE;
-$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+
 $settings['file_scan_ignore_directories'] = [
   'node_modules',
   'bower_components',
 ];
+
+if(file_exists($app_root . '/' . $site_path . '/services.yml')) {
+  $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+}
+// Environment specific settings files.
+if (getenv('SITE_ENVIRONMENT') && file_exists(__DIR__ . '/' . getenv('SITE_ENVIRONMENT') . '.services.yml')) {
+  // Environment specific services files.
+  $settings['container_yamls'][] = __DIR__ . '/' . getenv('SITE_ENVIRONMENT') . '.services.yml';
+}
+// Last: This server specific services file.
+if (file_exists(__DIR__ . '/services.local.yml')) {
+  $settings['container_yamls'][] = __DIR__ . '/services.local.yml';
+}
 
 // Set up a config sync directory.
 //
@@ -68,12 +81,6 @@ if (file_exists('/var/config/drupal/settings.local.php')) {
 if (file_exists(__DIR__ . '/services.yml')) {
   $settings['container_yamls'][] = __DIR__ . '/services.yml';
 }
-
-// Last: This server specific services file.
-if (file_exists(__DIR__ . '/services.local.yml')) {
-  $settings['container_yamls'][] = __DIR__ . '/services.local.yml';
-}
-
 
 $settings['cache_ttl_4xx'] = 0;
 
