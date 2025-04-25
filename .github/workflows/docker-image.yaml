@@ -38,5 +38,5 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64
         file: 'Dockerfile'
-        tags: 'davyinsa/drupal-settings:1.1'
+        tags: 'davyinsa/drupal-settings:1.2'
 
