@@ -1,5 +1,5 @@
 <?php
-
+use Drupal\Core\Installer\InstallerKernel;
 ### Database connection
 if (!empty(getenv('DB_HOST'))) {
   $databases['default']['default'] = [
@@ -29,9 +29,12 @@ if (
   $settings['redis.connection'] = [
     'host' => getenv('REDIS_HOST'),
     'port' => getenv('REDIS_PORT'),
-    'password' => getenv('REDIS_PASSWORD'),
-    'persistent' => TRUE,
+    //'password' => getenv('REDIS_PASSWORD'),
+    //'persistent' => TRUE,
   ];
+  if (!empty(getenv('REDIS_PASSWORD'))) {
+    $settings['redis.connection']['password'] = getenv('REDIS_PASSWORD');
+  }
 
   $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
   $settings['container_yamls'][] = 'modules/contrib/redis/redis.services.yml';
